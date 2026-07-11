@@ -8,9 +8,15 @@
 > 💜 **[Sponsor this curriculum](https://github.com/sponsors/ai-governance-curriculum)** — sponsorships keep the whole open-source AI Career Curriculum free and moving.
 <!-- /aicg:sponsor -->
 
-Make agents safe: adversarial testing, prompt-injection defense, excessive-agency containment, and safety guardrails.
+Make agents safe: adversarial testing, prompt-injection defense, excessive-agency containment, dangerous-capability evaluation, safety-case authoring, and frontier-scale safety guardrails.
 
-> **Status**: scaffolded by `aicg org bootstrap-role`. The curriculum is not authored yet. Run `aicg org research` and `aicg org daily` to drive the autonomous fill-in loop.
+**Role level:** 40 (senior technical specialist — AI Governance family)
+
+> **Status**: curriculum plan seeded from authoritative public references. Live-postings sweep (≥25 in-window job postings) deferred to the next autonomous research cycle — WebSearch / WebFetch were not granted in this bootstrap session. See [`JOB_REQUIREMENTS.md`](JOB_REQUIREMENTS.md#status--bootstrap-session-live-postings-deferred) for the deferral note and [`CURRICULUM.md`](CURRICULUM.md) for the 12-module / 3-project plan (184 module hours + 130 project hours = ~314 hours).
+
+## Prerequisite track
+
+This curriculum treats [`ai-risk-engineer-learning`](https://github.com/ai-governance-curriculum/ai-risk-engineer-learning) (level 25) as a **required prerequisite**. The general engineering craft of AI risk — framework fluency, harm modelling, general adversarial-ML / fairness / privacy / guardrail engineering, MRM shape, risk registers, incident RCA, cross-functional team-scope program — is not re-taught here. See [`PREREQUISITES.md`](PREREQUISITES.md).
 
 ## Layout
 

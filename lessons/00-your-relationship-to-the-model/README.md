@@ -39,14 +39,14 @@ Each row is a sibling org: what you hand them, what they hand you, and the role 
 | Org | You hand them | They hand you | Your nearest counterpart |
 |-----|---------------|---------------|--------------------------|
 | AI Startup | A defensible position for customers, regulators, and investors, and early warning on uses that would sink the company | The company's risk appetite, target markets, and customer commitments that set the compliance bar | [Startup Operations & Governance](https://github.com/ai-startup-curriculum/startup-operations-governance-curriculum) |
-| AI Engineering | Risk tiers, guardrail requirements, and red-team findings to fix before (and after) launch | System descriptions, eval results, and guardrail designs for each AI feature, plus incident reports when something goes wrong | [Senior Agentic AI Engineer](https://github.com/ai-engineering-curriculum/senior-agentic-ai-engineer-learning) |
+| AI Engineering | Risk tiers, guardrail requirements, and red-team findings to fix before (and after) launch | System descriptions, eval results, and guardrail designs for each AI feature, plus incident reports when something goes wrong | [Agent Platform Engineer](https://github.com/ai-engineering-curriculum/agent-platform-engineer-learning) |
 | ML Engineering | Data-use rules, documentation standards, and the risk-based evaluation bar a model must clear | Data provenance, model cards, training-data documentation, and evaluation results they can audit | [Staff Machine Learning Engineer](https://github.com/ml-engineering-curriculum/staff-ml-engineer-learning) |
 | AI Infrastructure | Control requirements (logging, access, retention, residency) and the evidence they need to produce | Audit logs, access controls, data-residency guarantees, and evidence that controls actually run in production | [AI Infrastructure Team Lead](https://github.com/AI-Infra-Curriculum/ai-infra-team-lead-learning) |
 
 ## Your ladder
 
 - **Before this role:** [AI Evaluation Engineer](https://github.com/ai-governance-curriculum/ai-evaluation-engineer-learning), [AI/ML Security & Governance Engineer](https://github.com/ai-governance-curriculum/security-learning)
-- **After this role:** [Senior AI Governance / Risk Architect](https://github.com/ai-governance-curriculum/senior-ai-governance-architect-learning)
+- **After this role:** [AI Auditor](https://github.com/ai-governance-curriculum/ai-auditor-learning)
 
 ## Scenario: One model upgrade, five orgs
 

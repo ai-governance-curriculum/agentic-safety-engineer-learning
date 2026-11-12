@@ -12,11 +12,11 @@ The load-bearing insight: system-card authoring is a *reduction* problem. The sa
 
 ## Primary sources
 
-- **[Anthropic Claude system cards / model cards](https://www.anthropic.com/news)** — the Anthropic-shape genre. Read the most recent Claude family card end-to-end. <!-- needs-research: pin the current published Claude system card (e.g. Claude Opus 4 / Sonnet 4 / Sonnet 4.5 series) URL and version; Anthropic updates the cards per model release. -->
-- **[OpenAI system cards](https://openai.com/safety)** — the OpenAI-shape genre. Read the most recent GPT / o-series card end-to-end. <!-- needs-research: pin the current GPT-4o / GPT-5 / o-series system-card URL and version. -->
-- **[Google DeepMind Gemini system cards](https://deepmind.google/technologies/gemini/)** — the DeepMind-shape genre. Read the most recent Gemini system card end-to-end. <!-- needs-research: pin the current Gemini system-card URL and version. -->
-- **[NIST AI RMF 1.0 — Transparency and Documentation guidance](https://www.nist.gov/itl/ai-risk-management-framework)** — the framework-level guidance on model documentation. <!-- needs-research: pin the specific NIST publication (AI RMF playbook or a companion publication) that most directly frames system-card content. -->
-- **[Partnership on AI — ABOUT ML documentation practices](https://partnershiponai.org/)** — early industry work on model documentation that many current cards descend from. <!-- needs-research: pin the specific ABOUT ML publication the card references. -->
+- **[Anthropic system cards — Transparency Hub](https://www.anthropic.com/transparency)** — the Anthropic-shape genre. Current flagship cards include [Claude Opus 4.6](https://www-cdn.anthropic.com/14e4fb01875d2a69f646fa5e574dea2b1c0ff7b5.pdf) (February 2026), [Claude Opus 4.5](https://www-cdn.anthropic.com/bf10f64990cfda0ba858290be7b8cc6317685f47.pdf) (November 2025), and [Claude Sonnet 4.5](https://www.anthropic.com/claude-sonnet-4-5-system-card) (September 2025). Read the most recent Claude family card end-to-end.
+- **[OpenAI *GPT-5 System Card*](https://openai.com/index/gpt-5-system-card/)** (August 2025) plus the [*GPT-5.1 Instant / Thinking* addendum](https://openai.com/index/gpt-5-system-card-addendum-gpt-5-1/) — the OpenAI-shape genre. Read the most recent GPT / o-series card end-to-end.
+- **[Google DeepMind *Gemini 3 Pro* Frontier Safety Framework Report](https://deepmind.google/models/fsf-reports/gemini-3-pro/)** (November 2025) and the [*Gemini 2.5 Pro* model card](https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Pro-Model-Card.pdf) (updated 27 June 2025) — the DeepMind-shape genre. Read the most recent Gemini system card end-to-end.
+- **[NIST AI 600-1 — AI Risk Management Framework: Generative AI Profile](https://doi.org/10.6028/NIST.AI.600-1)** (July 2024) — the Generative AI profile of the AI RMF; names model cards, datasheets, and data nutrition labels as the recommended transparency artefacts. Framework-level guidance on model documentation.
+- **[Partnership on AI — *ABOUT ML v0 Draft Final*](https://partnershiponai.org/wp-content/uploads/2021/08/ABOUT-ML-v0-Draft-Final.pdf)** (Annotation and Benchmarking on Understanding and Transparency of Machine Learning Lifecycles) — early industry work on model documentation that many current cards descend from.
 - **[Model Cards for Model Reporting (Mitchell et al.)](https://dl.acm.org/doi/10.1145/3287560.3287596)** — the academic root of the model-card genre. Read once for the historical framing.
 
 Version-pin the cards you cite. The genre revises quarterly; specific claims come and go.
@@ -49,7 +49,7 @@ Read one recent card from each of the three shapes before this chapter. The shap
 
 *Emphasis.* Emphasis on the Frontier Safety Framework's Critical Capability Levels and mitigation tiers, with explicit CCL determinations per capability domain. Load-bearing on the CCL claims and the associated mitigation-tier engagements.
 
-*Length.* Historically shorter than Anthropic / OpenAI cards for equivalent releases, though the trend is toward longer disclosure. <!-- needs-research: verify recent Gemini system card lengths and any shift toward longer disclosure formats. -->
+*Length.* Historically shorter than Anthropic / OpenAI cards for equivalent releases — the Gemini 2.5 Pro model card ran to roughly six pages, and the November 2025 Gemini 3 Pro model card to roughly nine pages — though the trend is toward longer disclosure.
 
 *Section shape.* Model summary → capabilities and evaluations → Frontier Safety Framework determinations → responsible development mitigations → deployment restrictions and access → limitations.
 

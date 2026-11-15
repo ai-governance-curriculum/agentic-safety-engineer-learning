@@ -2,7 +2,7 @@
 
 AI Governance Curriculum · Level 40 · [learning](https://github.com/ai-governance-curriculum/agentic-safety-engineer-learning) · [solutions](https://github.com/ai-governance-curriculum/agentic-safety-engineer-solutions)
 
-_Generated 2026-11-03 by `aicg org completeness`._
+_Generated 2026-11-15 by `aicg org completeness`._
 
 **Overall: 50%**
 
@@ -20,13 +20,13 @@ _Generated 2026-11-03 by `aicg org completeness`._
 | `mod-103-prompt-injection-engineering` | ✅ Complete | 31,445 | 9 | 5 | — | 0/5 |
 | `mod-104-jailbreak-engineering` | ✅ Complete | 41,396 | 9 | 7 | — | 0/7 |
 | `mod-105-agent-attack-surface-engineering` | ✅ Complete | 30,675 | 7 | 5 | — | 0/5 |
-| `mod-106-dangerous-capability-evaluations` | ✅ Complete | 34,850 | 7 | 6 | — | 0/6 |
+| `mod-106-dangerous-capability-evaluations` | ✅ Complete | 35,806 | 7 | 6 | — | 0/6 |
 | `mod-107-excessive-agency-containment` | ✅ Complete | 29,383 | 6 | 5 | — | 0/5 |
 | `mod-108-frontier-guardrails-and-monitors` | ✅ Complete | 32,610 | 6 | 5 | — | 0/5 |
 | `mod-109-safety-cases-and-structured-argumentation` | ✅ Complete | 31,847 | 6 | 5 | — | 0/5 |
 | `mod-110-control-and-deception-evaluation` | ✅ Complete | 47,160 | 9 | 8 | — | 0/8 |
 | `mod-111-automated-and-scaled-red-teaming` | ✅ Complete | 42,284 | 6 | 7 | — | 0/7 |
-| `mod-112-safety-program-and-disclosure` | ✅ Complete | 41,839 | 6 | 7 | — | 0/7 |
+| `mod-112-safety-program-and-disclosure` | ✅ Complete | 41,848 | 6 | 7 | — | 0/7 |
 
 ## How this is calculated
 

@@ -12,7 +12,7 @@ The load-bearing insight is that *ASR alone is misleading*. An attacker loop tha
 - **[Mehrotra et al. 2023 — "Tree of Attacks: Jailbreaking Black-Box LLMs Automatically"](https://arxiv.org/abs/2312.02119)** — the TAP paper. Extends PAIR with branching and pruning; the tree-search shape is the reference architecture for cost-controlled deeper adaptation.
 - **[Russinovich et al. 2024 — "Great, Now Write an Article About That: The Crescendo Multi-Turn LLM Jailbreak Attack"](https://arxiv.org/abs/2404.01833)** — the Crescendo paper. The multi-turn refusal-erosion methodology and the way the attacker's prior context is engineered.
 - **[Perez et al. 2022 — "Red Teaming Language Models with Language Models"](https://arxiv.org/abs/2202.03286)** — the foundational Anthropic paper for LLM-vs-LLM red-teaming; the RL-based attacker methodology this chapter cites for the deeper attacker training.
-- **[Microsoft PyRIT — orchestrator source](https://github.com/Azure/PyRIT/tree/main/pyrit/orchestrator)** — the reference implementation for the loops discussed below. <!-- needs-research: pin the current PyRIT release + the orchestrator subpath; Microsoft has moved this path across releases. -->
+- **[Microsoft PyRIT — attack-executor source](https://github.com/microsoft/PyRIT/tree/main/pyrit/executor/attack)** — the reference implementation for the loops discussed below. From v1.1.0 (4 September 2026) the loops live under `pyrit.executor.attack`; earlier releases exposed them under `pyrit.orchestrator`. Pin the release the CMC targets.
 
 ## The three canonical attacker loops
 
@@ -96,7 +96,7 @@ The load-bearing insight of the module: *ASR without diversity is unfaithful.* A
 
 Semantic distance across successful attacks in a cell. Common concrete shapes:
 
-- **Embedding-distance clustering.** Embed each successful attack under a chosen embedding model; cluster with a chosen threshold; the number of clusters and the cluster-size distribution is the diversity metric. Report the number-of-unique-clusters at a threshold, e.g., `unique_clusters@0.85 = 12`. <!-- needs-research: pin the specific embedding model + threshold the CMC uses; the choice is a methodology commitment. -->
+- **Embedding-distance clustering.** Embed each successful attack under a chosen embedding model; cluster with a chosen threshold; the number of clusters and the cluster-size distribution is the diversity metric. Report the number-of-unique-clusters at a threshold, e.g., `unique_clusters@0.85 = 12`. The embedding model and threshold are a methodology commitment the CMC section-4 pins explicitly.
 - **N-gram diversity.** Distinct token n-grams across successful prompts; simpler than embedding-distance, weaker signal but useful as a check that the loop is not producing near-duplicates.
 - **Judge-provided facet coverage.** For behaviour categories the judge can decompose (e.g., CBRN-uplift split into acquisition / synthesis / dispersal), the judge tags each successful attack with the covered facet; diversity is *facet coverage*.
 
@@ -113,7 +113,7 @@ The CMC section-4 judge contract names the specific diversity metric and its thr
 - **PAIR** produces low diversity per seed (the iterative refinement stays close to the seed) and moderate diversity across seeds. Seed-corpus diversity is what carries the loop.
 - **TAP** produces higher diversity per seed than PAIR (branching explores directions) and similar across-seed diversity.
 - **Crescendo** produces low diversity per seed (each successful attack is a *conversation*; the conversational shape is repetitive) and moderate across-seed diversity.
-- **RL-trained attackers** tend to *reduce* diversity — the RL reward drives towards the successful mode. Countering this is an active engineering problem; entropy-regularisation and diversity-bonus reward shaping are the standard remedies. <!-- needs-research: cite a specific paper on diversity-preserving RL red-team training if one is published; if not, mark as an open problem in the CMC. -->
+- **RL-trained attackers** tend to *reduce* diversity — the RL reward drives towards the successful mode. Countering this is an active engineering problem; entropy-regularisation and diversity-bonus reward shaping are the standard remedies ([Beutel et al., *Diverse and Effective Red Teaming with Auto-generated Rewards*, OpenAI 2024](https://cdn.openai.com/papers/diverse-and-effective-red-teaming.pdf) is one representative treatment; token-level entropy preservation alone does not resolve strategy-level collapse, so the CMC flags residual collapse as an open methodology risk).
 
 The CMC section-3 records the diversity of each cell's successful-attack set; deltas across model revs are what a reviewer inspects.
 

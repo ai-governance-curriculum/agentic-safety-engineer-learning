@@ -11,10 +11,10 @@ This chapter walks the StrongREJECT-shape judge methodology: what the judge is a
 ## Primary sources
 
 - **[Souly et al. 2024 — "A StrongREJECT for Empty Jailbreaks"](https://arxiv.org/abs/2402.10260)** — the load-bearing paper. Reads front-to-back; the failure-mode analysis of existing judges and the specific rubric StrongREJECT proposes.
-- **[StrongREJECT — GitHub repository](https://github.com/alexandrasouly/strongreject)** — the reference implementation. <!-- needs-research: confirm the current canonical repository location; the authors have re-hosted. -->
-- **[JailbreakBench — evaluation methodology](https://jailbreakbench.github.io/)** — the benchmark's judge methodology and the StrongREJECT integration. <!-- needs-research: pin the specific documentation URL that describes the judge integration. -->
-- **[HarmBench](https://www.harmbench.org/)** — an alternative judge / benchmark stack; comparing HarmBench's judge to StrongREJECT is standard methodology. <!-- needs-research: pin the current HarmBench canonical URL. -->
-- **[Souly et al. — StrongREJECT rubric artefacts](https://github.com/alexandrasouly/strongreject/tree/main/strongreject/prompts)** — the rubric prompt files the LLM-judge is instantiated with. <!-- needs-research: confirm the path in the current repository layout. -->
+- **[StrongREJECT — reference implementation](https://github.com/dsbowen/strong_reject)** — the maintained repository, including the fine-tuned StrongREJECT evaluator and human-evaluation replication; the original `alexandrasouly/strongreject` repository is now marked deprecated and redirects here.
+- **[JailbreakBench](https://jailbreakbench.github.io/)** — the benchmark's prompt set, leaderboard, and evaluation framework; the StrongREJECT integration is documented in the accompanying paper and `jailbreakbench` library rather than on the landing page itself.
+- **[HarmBench](https://www.harmbench.org/)** (reference implementation at [`centerforaisafety/HarmBench`](https://github.com/centerforaisafety/HarmBench)) — an alternative judge / benchmark stack with 400 harmful behaviours across 7 categories; comparing HarmBench's judge to StrongREJECT is standard methodology.
+- **[Souly et al. — StrongREJECT autograder prompt](https://github.com/alexandrasouly/strongreject/blob/main/strongreject/strongreject_evaluator_prompt.txt)** — the rubric prompt file the LLM-judge is instantiated with; the maintained `dsbowen/strong_reject` port exposes the equivalent prompt via its `strong_reject` package.
 
 Version-pin the judge model weights hash, the rubric prompt file hash, and the decoding configuration in the CMC's section-4 judge contract.
 

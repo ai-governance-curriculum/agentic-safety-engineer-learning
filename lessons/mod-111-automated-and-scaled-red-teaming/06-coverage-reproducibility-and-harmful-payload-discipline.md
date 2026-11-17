@@ -10,10 +10,10 @@ This chapter walks each of the three disciplines and closes the CMC contract thi
 
 ## Primary sources
 
-- **[UK AISI — Inspect logs and reproducibility documentation](https://inspect.aisi.org.uk/log-viewer.html)** — the Inspect log-store's reproducibility model. <!-- needs-research: confirm the current canonical URL for Inspect log-store documentation. -->
-- **[NIST AI RMF 1.0 — Manage function, MANAGE-1.4](https://airc.nist.gov/AI_RMF_Knowledge_Base/Playbook/Manage/Manage_1)** — the reference posture for AI-risk management artefact reproducibility. <!-- needs-research: verify the specific subcategory citation and URL. -->
-- **[MLCommons — AILuminate benchmark methodology](https://mlcommons.org/benchmarks/ai-luminate/)** — the methodology on evaluation-set hosting outside the source repository is one reference for the discipline this chapter codifies. <!-- needs-research: pin the AILuminate benchmark version and its methodology-hosting doc. -->
-- **[Anthropic — Responsible Disclosure Policy for AI Vulnerabilities](https://www.anthropic.com/responsible-disclosure-policy)** — the reference posture on harmful-payload handling in vulnerability writeups. <!-- needs-research: confirm the current title and URL. -->
+- **[UK AISI — Inspect eval logs](https://inspect.aisi.org.uk/eval-logs.html)** and **[Inspect Log Viewer](https://inspect.aisi.org.uk/log-viewer.html)** — the log-store reproducibility model (per-run JSON transcripts with scores, metadata, and git-provenance) and the interactive viewer used to replay a sample.
+- **[NIST AI RMF Playbook — MANAGE function](https://airc.nist.gov/airmf-resources/playbook/manage/)**, specifically subcategory **MANAGE 1.4** (*negative residual risks to downstream acquirers and end users are documented*) — the reference posture for AI-risk management artefact reproducibility and residual-risk disclosure.
+- **[MLCommons — AILuminate Assessment Standard](https://mlcommons.org/ailuminate/assessment-standard/)** (v1.4, May 2026) and the companion [Safety Methodology](https://mlcommons.org/ailuminate/safety-methodology/) — the methodology on evaluation-set hosting outside the source repository is one reference for the discipline this chapter codifies.
+- **[Anthropic — Responsible Disclosure Policy](https://www.anthropic.com/responsible-disclosure-policy)** — the reference posture on harmful-payload handling in vulnerability writeups; the November 2026 revision tightened the standard window to 30 days for high- and critical-severity findings and 45 days otherwise.
 - **[EU AI Act — Article 55 (general-purpose AI models with systemic risk)](https://artificialintelligenceact.eu/article/55/)** — the regulatory shape for evaluation and red-team documentation the CMC ultimately feeds. <!-- needs-research: pin the current published article text; the Act has been amended. -->
 
 Version-pin these when they are cited in a CMC or a replay bundle.

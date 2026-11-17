@@ -8,11 +8,11 @@ The load-bearing insight is that the four flagship tools each solve a *different
 
 ## Primary sources
 
-- **[UK AI Safety Institute — Inspect framework](https://inspect.aisi.org.uk/)** — the documentation site for Inspect, covering the solver / scorer / task model, the log store, and the sandbox integration. <!-- needs-research: confirm the current canonical documentation URL; AISI has hosted Inspect docs under multiple subdomains. -->
+- **[UK AI Security Institute — Inspect framework](https://inspect.aisi.org.uk/)** — the current canonical documentation site for Inspect, covering the solver / scorer / task model, the log store, and the sandbox integration.
 - **[UKGovernmentBEIS/inspect_ai — GitHub repository](https://github.com/UKGovernmentBEIS/inspect_ai)** — the source repository; the reference for pinning versions in the CMC's section-3.
-- **[Microsoft — PyRIT](https://github.com/Azure/PyRIT)** — the source repository. The README + docs cover orchestrators, converters, targets, and scorers. <!-- needs-research: pin the current published version of the PyRIT docs and confirm the orchestrator taxonomy has not been renamed (Microsoft has revised the class names). -->
-- **[NVIDIA — garak](https://github.com/NVIDIA/garak)** — the source repository; the reference for probe / detector inventory. The associated paper (Derczynski et al.) documents the design. <!-- needs-research: cite the garak paper URL (arXiv identifier) once verified. -->
-- **[Promptfoo — Red-Team documentation](https://www.promptfoo.dev/docs/red-team/)** — the CI-integrated red-team suite documentation. <!-- needs-research: confirm the current documentation URL and the red-team-plugin taxonomy the CMC will reference. -->
+- **[Microsoft — PyRIT](https://github.com/microsoft/PyRIT)** — the source repository (the former `Azure/PyRIT` repo was archived in 2026 and `microsoft/PyRIT` is canonical). As of v1.1.0 (released 4 September 2026) the `pyrit.orchestrator` package was removed and orchestrators are now attack strategies under `pyrit.executor.attack` (e.g. `PromptSendingOrchestrator` → `PromptSendingAttack`); pin the specific release the CMC uses.
+- **[NVIDIA — garak](https://github.com/NVIDIA/garak)** — the source repository; the reference for probe / detector inventory. The associated paper is [Derczynski et al., *garak: A Framework for Security Probing Large Language Models*, arXiv:2406.11036](https://arxiv.org/abs/2406.11036).
+- **[Promptfoo — Red Team Plugins](https://www.promptfoo.dev/docs/red-team/plugins/)** — the CI-integrated red-team suite documentation; the plugin taxonomy spans harmful-content, security / injection, PII, and compliance / brand categories that the CMC's behaviour-category axis maps to.
 
 Version-pin these frameworks and their image digests in the CMC's section-3 orchestrator inventory.
 

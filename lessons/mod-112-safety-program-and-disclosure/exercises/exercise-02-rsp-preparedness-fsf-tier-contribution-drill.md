@@ -11,9 +11,9 @@ Draft the **tier-decision memo** the safety-engineering role delivers into a Res
 
 Pick **one model version** and **one framework**. The model version is either a real published model your organisation ships (name it explicitly with version + build ID) or a plausible surrogate (a hypothetical next-rev of a real family — mark all downstream claims as surrogate). The framework choice is one of:
 
-- **RSP-shape ASL memo** — Anthropic Responsible Scaling Policy vocabulary (ASL-N determination, RSO signoff slot). <!-- needs-research: pin the current published RSP version and the ASL threshold-language it defines. -->
-- **Preparedness-shape scorecard memo** — OpenAI Preparedness Framework vocabulary (scorecard grade per tracked category, Preparedness Committee signoff slot). <!-- needs-research: pin the current Preparedness Framework version and the tracked-category taxonomy. -->
-- **FSF-shape CCL memo** — Google DeepMind Frontier Safety Framework vocabulary (Critical Capability Level crossing, mitigation-tier engagement, Safety Board signoff slot). <!-- needs-research: pin the current FSF publication and the CCL / mitigation-tier taxonomy. -->
+- **RSP-shape ASL memo** — [Anthropic Responsible Scaling Policy v3.2](https://www.anthropic.com/rsp) (effective 29 April 2026) vocabulary (ASL-N determination across ASL-1 through ASL-4 with higher tiers deliberately left open, RSO signoff slot).
+- **Preparedness-shape scorecard memo** — [OpenAI Preparedness Framework v2](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) (last updated 15 April 2025) vocabulary (High Capability / Critical Capability grade across the three Tracked Categories — Biological & Chemical, Cybersecurity, AI Self-Improvement — with Preparedness Committee signoff slot).
+- **FSF-shape CCL memo** — [Google DeepMind Frontier Safety Framework v3.1](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/) (updated 17 April 2026) vocabulary (Critical Capability Level crossings across CBRN, cyber, harmful manipulation and combined ML R&D / misalignment domains; the lower-severity Tracked Capability Level tier for early warning; Security-Level-based mitigation tiers; Safety Board / safety-case-review signoff slot).
 
 Write the memo *in the chosen framework's vocabulary*. Cross-framework mapping lives in the thresholds artefact per chapter 02's cross-framework-alignment note; the memo body does not translate.
 
@@ -50,8 +50,8 @@ The pre-registered thresholds table. **At least three thresholds.** Each thresho
 Per threshold:
 
 - `threshold_id` — stable identifier the memo §3 references.
-- `capability_domain` — the mod-106 capability domain (CBRN-uplift, cyber-offense, autonomy-uplift, persuasion, self-exfiltration, agentic-misuse, etc.). <!-- needs-research: pin the framework-specific taxonomy for tracked categories — Preparedness and FSF use different vocabularies. -->
-- `benchmark` — the named benchmark (e.g. `cybench`, `re-bench`, `swe-bench`, `wmdp`, a lab-internal DCER harness). <!-- needs-research: pin the exact benchmark identifier and its current published version. -->
+- `capability_domain` — the mod-106 capability domain, expressed in the chosen framework's vocabulary. [Preparedness v2](https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf) names three Tracked Categories (Biological & Chemical, Cybersecurity, AI Self-Improvement; persuasion was removed in v2), while [FSF v3.1](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/) names CCL domains across CBRN, cyber, harmful manipulation, and combined ML R&D / misalignment.
+- `benchmark` — the named benchmark, pinned to its authoritative identifier (e.g. [Cybench](https://arxiv.org/abs/2408.08926), [RE-Bench](https://metr.org/blog/2024-11-22-evaluating-r-d-capabilities-of-llms/), [SWE-bench Verified](https://www.swebench.com/), [WMDP](https://wmdp.ai), or a lab-internal DCER harness).
 - `benchmark_version` — the pinned version + git SHA of the benchmark harness at the eval it grades.
 - `elicitation_config` — the mod-106-shape elicitation configuration, with `prompt_template_hash`, `tool_set` (named tools + versions), `budget` (wall-clock, tokens, cost cap), `regime` (one of `fine_tuning_on_domain_data`, `tool_augmented`, `multi_agent_decomposition`, `expert_in_loop`), and `elicitation_config_hash` for the composite.
 - `numeric_threshold` — the specific number a passing score must exceed to trigger next-tier consideration.

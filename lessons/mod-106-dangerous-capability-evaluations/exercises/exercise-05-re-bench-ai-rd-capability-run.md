@@ -11,9 +11,9 @@ This exercise anchors chapter 04's RE-Bench section in practice. It is deliberat
 ## Prerequisites
 
 - Read chapter 04 (autonomy evaluation) end-to-end, with focus on the RE-Bench anchor section.
-- Read the RE-Bench paper (Wijk et al., METR, 2024) — abstract, task descriptions, and human-expert-baseline methodology. <!-- needs-research: confirm current RE-Bench release URL and task list. -->
-- Skim the RE-Bench reference-scaffold documentation if published, or the METR blog posts summarising RE-Bench setup. <!-- needs-research: confirm current RE-Bench reference-scaffold documentation. -->
-- Skim FSF ML-R&D CCL definitions (or the Preparedness Framework's autonomy-adjacent tier / RSP's autonomy tier definitions) to have a specific tier to measure against. <!-- needs-research: confirm current FSF release with ML-R&D CCL language. -->
+- Read the RE-Bench paper — [Wijk et al., "RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts" (METR, 2024, arXiv:2411.15114)](https://arxiv.org/abs/2411.15114) — abstract, task descriptions, and human-expert-baseline methodology.
+- Skim the [RE-Bench reference implementation](https://github.com/METR/RE-Bench) (archived read-only as of late 2026) and the METR blog posts summarising RE-Bench setup for task-scaffold context.
+- Skim the ML R&D CCL definitions in [DeepMind's Frontier Safety Framework (currently v3.1, April 2026)](https://deepmind.google/blog/strengthening-our-frontier-safety-framework/) — or the Preparedness Framework's AI Self-Improvement category / RSP's Autonomous AI R&D threshold — to have a specific tier to measure against.
 - Have a target model with tool-use capability (a strong reasoning model or capable open-weights model — RE-Bench is compute-heavy on some tasks; a small target on modest tasks is acceptable for exercise scale).
 - Have an agent scaffold with shell + Python + filesystem + optionally GPU-compute access for the training-loop tasks.
 - Have completed exercise-04 (recommended) — the autonomy scaling curve is the natural context for the RE-Bench result.
@@ -24,7 +24,7 @@ The exercise has four parts. All four are required.
 
 ### Part 1 — RE-Bench task subset
 
-1. **Pin the RE-Bench version** and select 2–3 tasks from the seven-task suite. Cover at least one algorithmic-optimisation task and at least one ML-training-loop or scoring-function task. Document the task IDs. <!-- needs-research: confirm current RE-Bench task list and each task's description. -->
+1. **Pin the RE-Bench version** and select 2–3 tasks from the seven-task suite described in [Wijk et al. (2024)](https://arxiv.org/abs/2411.15114). Cover at least one algorithmic-optimisation task and at least one ML-training-loop or scoring-function task. Document the task IDs.
 2. **Document each task's reference human-expert baseline** — the score the RE-Bench paper reports for human ML experts at the 2-hour and 8-hour cutoffs. This is the anchor against which the agent's score is compared.
 3. **Note each task's compute-and-tool requirements** — some tasks require GPU compute, others are CPU-only. Document what you can and cannot run given your resources.
 

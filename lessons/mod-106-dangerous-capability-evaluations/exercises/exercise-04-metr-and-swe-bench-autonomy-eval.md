@@ -11,10 +11,10 @@ This exercise anchors chapter 04 in practice. You will run a modest subset of ME
 ## Prerequisites
 
 - Read chapter 04 (autonomy evaluation) end-to-end.
-- Read the most recent METR autonomy report (task-length-in-human-hours doubling curve). <!-- needs-research: confirm current METR autonomy report URL and version. -->
-- Read the SWE-bench and SWE-bench Verified papers (Jimenez et al., 2024; OpenAI, 2024). <!-- needs-research: confirm current SWE-bench Verified release URL. -->
-- Skim at least one AISI autonomy pre-deployment report for methodology anchoring. <!-- needs-research: confirm current AISI autonomy publications. -->
-- Skim the FMF working-paper guidance on autonomous replication and adaptation. <!-- needs-research: confirm current FMF autonomy publications. -->
+- Read the most recent METR autonomy report on task-length-in-human-hours doubling — Kwa et al., ["Measuring AI Ability to Complete Long Tasks"](https://arxiv.org/abs/2503.14499) (METR, March 2025) is the current foundational paper; check [metr.org/research](https://metr.org/research/) for the latest horizon update.
+- Read the SWE-bench and SWE-bench Verified papers — [Jimenez et al., 2024 (arXiv:2310.06770)](https://arxiv.org/abs/2310.06770) and [OpenAI's "Introducing SWE-bench Verified" (2024)](https://openai.com/index/introducing-swe-bench-verified/).
+- Skim at least one autonomy-relevant pre-deployment report from the [UK AI Security Institute work page](https://www.aisi.gov.uk/work) for methodology anchoring.
+- Skim the [Frontier Model Forum publications hub](https://www.frontiermodelforum.org/publications/) for working-paper guidance adjacent to autonomous replication and adaptation.
 - Have a target model accessible. An open-weights model or a frontier API is fine; if a frontier API, ensure your usage tier allows agent-scaffolded runs at the compute budget you plan.
 - Have Inspect (AISI) or another agent-scaffold harness installed and working. Alternatively, a bespoke ReAct scaffold with shell + Python + filesystem tools is acceptable.
 - Have the chapter-01-style pre-registration document authored.
@@ -25,7 +25,7 @@ The exercise has four parts. All four are required.
 
 ### Part 1 — METR public task suite subset
 
-1. **Pin the METR task-suite version** and select a subset of 4–8 tasks that span a range of estimated task-length-in-human-hours (from short — under an hour — to long — several hours). Document per-task reference human-hours estimates from METR's published data. <!-- needs-research: confirm current METR public-task-suite access and per-task human-hours. -->
+1. **Pin the METR task-suite version** and select a subset of 4–8 tasks that span a range of estimated task-length-in-human-hours (from short — under an hour — to long — several hours). Document per-task reference human-hours estimates from METR's published data — the public subset of [HCAST (Human-Calibrated Autonomy Software Tasks)](https://github.com/METR/hcast-public) is the canonical access point; METR withholds the remainder to prevent contamination.
 2. **Pin the agent scaffold** — Inspect-shaped, METR's own harness, or a bespoke ReAct/plan-execute scaffold. Document the tool set (shell, filesystem, Python interpreter, optionally a browser), the per-task compute budget (turns, tool-calls, tokens), and the self-selection strategy if any.
 3. **Run the scaffold on each task under best-of-N sampling** — for each task, N attempts, each attempt bounded by the compute budget. Report per-task success (any attempt succeeded) and per-attempt success (the mean across attempts).
 4. **Report the per-task pass rate** and the mapping onto task-length-in-hours.
@@ -46,7 +46,7 @@ Compose Parts 1 and 2 into a scaling-curve artefact:
 2. **Y-axis: pass rate at the model + scaffold + compute budget.**
 3. **Plot the points** and fit a decreasing curve (logistic or empirical binning is fine for the exercise scale).
 4. **Estimate the 50%-completion horizon** — the task-length at which the curve crosses 0.5. Note the uncertainty (a wide-CI horizon at your task-count is expected).
-5. **Overlay the METR doubling-time projection** for your target model's release generation. Note where your observed horizon sits relative to the trend — above, below, or on it. <!-- needs-research: confirm the current METR-published doubling-time and the projected horizon for your target model's release generation. -->
+5. **Overlay the METR doubling-time projection** for your target model's release generation (the Kwa et al. 2025 paper documents the original ~7-month doubling; consult [metr.org/research](https://metr.org/research/) for the current horizon update, as the figure has moved with subsequent capability reports). Note where your observed horizon sits relative to the trend — above, below, or on it.
 
 ### Part 4 — DCER autonomy-panel section draft
 

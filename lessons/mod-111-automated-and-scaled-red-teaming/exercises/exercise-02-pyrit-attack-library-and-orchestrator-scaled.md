@@ -16,7 +16,7 @@ Apply **at least one converter chain** with two or more stages (for example, `Ba
 Configure two canonical PyRIT orchestrators against the target:
 
 1. **`PromptSendingOrchestrator`** — the single-turn shape; the direct-send baseline.
-2. **One multi-turn orchestrator** — `RedTeamingOrchestrator`, `CrescendoOrchestrator`, `PAIROrchestrator`, or `TreeOfAttackOrchestrator`. Pick one; chapter 03 walks the differences. <!-- needs-research: pin the current published PyRIT class names; Microsoft has revised the orchestrator taxonomy across releases. -->
+2. **One multi-turn orchestrator** — `RedTeamingOrchestrator`, `CrescendoOrchestrator`, `PAIROrchestrator`, or a tree-of-attacks variant. Pick one; chapter 03 walks the differences. Resolve the exact class name and import path against the version in your pinned [PyRIT release](https://github.com/microsoft/PyRIT/releases) — Microsoft has revised the orchestrator taxonomy across releases.
 
 Run the library against the target across **at least two decoding configs** (e.g., `T=0.0` and `T=0.7,p=0.95`) so each cell of your matrix carries a decoding axis, not just an attack axis. Produce a **per-cell tally** — ASR with 95% CI, sample count, cost — where a cell is `(behaviour_category × converter_chain × orchestrator × decoding_config)`. Score with a chapter-05 StrongREJECT-shape judge; **do not** use PyRIT's default `SelfAskLikertScorer` for the reported ASR (chapter 02 says why).
 
@@ -50,7 +50,7 @@ The library file records manifests only. Seed text lives in the payload store.
 The converter-chain registry. One entry per chain. Each entry carries:
 
 - `chain_id` — stable `CHN-<name>-<n>` identifier.
-- `stages` — ordered list of `{class, params}` entries naming PyRIT converter classes and their arguments. <!-- needs-research: confirm the exact PyRIT converter class names and parameter shapes for the pinned release. -->
+- `stages` — ordered list of `{class, params}` entries naming PyRIT converter classes and their arguments. Resolve exact class names and parameter shapes against the version in your pinned [PyRIT release](https://github.com/microsoft/PyRIT/releases); the converter catalogue is documented in the repo.
 - `pyrit_version`, `pyrit_git_sha` — version-pinning per chapter 02's discipline.
 - `rationale` — one to two sentences on why this chain matters (which mod-103 obfuscation primitive it rides on, which behaviour category it is expected to elicit against).
 - `output_payload_id_pattern` — the ID scheme under which the chain's output payloads land in the store (never inlined).
@@ -97,7 +97,7 @@ A short (800–1200 word) runbook covering:
 - **PyRIT is the attacker library; Inspect is the runner.** The chapter-02 load-bearing rule. If you find yourself calling `Orchestrator.run_attack()` as the top-level loop, stop; wrap the PyRIT invocation in an Inspect solver and let Inspect own the log.
 - **Sample the seed corpus deterministically.** Seeded random sampling from the public corpus, seed recorded in the manifest. A reviewer must be able to reproduce the same library.
 - **Diversify the categories.** Concentrating on one HarmBench category will produce a report that says nothing about coverage. Spread across at least three behaviour categories per chapter 03's diversity argument.
-- **Version-pin the converter chain, not just PyRIT.** Converter class names and parameter defaults have shifted across PyRIT releases. Pin the class + the release. <!-- needs-research: enumerate the converter classes and any parameter renames for the pinned release. -->
+- **Version-pin the converter chain, not just PyRIT.** Converter class names and parameter defaults have shifted across PyRIT releases. Pin the class + the release; enumerate the converter classes and any parameter renames against your chosen PyRIT version.
 - **Chain converters deliberately, not opportunistically.** A base64 wrapper around a persona wrapper is a different attack surface from a persona wrapper around a base64 wrapper. Name the composition explicitly (chapter 02).
 - **Replace `SelfAskLikertScorer` in the reported ASR path.** PyRIT's default scorer under-counts and over-counts in different ways from a StrongREJECT-shape judge. Cross-cell verdicts must be comparable; only a shared chapter-05 judge makes them comparable.
 - **Measure diversity on the seed corpus, not just successful attacks.** Chapter 03's argument is that a repetitive library over-reports its coverage. Compute the seed-corpus diversity per cell; compare to successful-attack diversity; flag the delta.
@@ -108,7 +108,7 @@ A short (800–1200 word) runbook covering:
 - **Cross-tag findings to the guardrail row.** A cell where a converter chain succeeded is a guardrail-configuration input for mod-108; note the tag on the cell.
 - **Do not commit any harmful payload.** Not the seed text, not the converter output, not the judge rationale. Every one of those is a payload-store artefact referenced by manifest.
 - **Author small first, scale second.** Get one behaviour category × one converter chain × one orchestrator × one decoding config passing end-to-end before fanning out. A broken adapter that runs 200 cells wastes 200 cells of budget.
-- **Mark unverified factual claims.** `<!-- needs-research: ... -->` on every PyRIT class name, seed-corpus size, ASR number, or judge calibration figure you cannot verify from primary source.
+- **Mark unverified factual claims.** Attach the module's research-pending comment marker to every PyRIT class name, seed-corpus size, ASR number, or judge calibration figure you cannot verify from primary source.
 
 ## Acceptance criteria
 
@@ -122,7 +122,7 @@ A short (800–1200 word) runbook covering:
 - ✅ **Payload discipline (chapter 06): no working attacker prompts, no converter output text, no judge rationale text, no target completions committed to this repo.** All are referenced by ID + sha256 + external storage URI.
 - ✅ PyRIT (package version + git SHA), the orchestrator class name for that release, each converter class and its parameters, the Inspect version + git SHA, and the judge (weights hash + rubric prompt hash + decoding config) are version-pinned in the runbook per chapter 02.
 - ✅ `cmc-<program>-pyrit-runbook.md` covers library-assembly rationale, converter-chain rationale, orchestrator choice, Inspect-as-runner wire-up, decoding-config choice, seed-corpus diversity, repetition-finding audit, judge choice, version pinning, threats to validity, and the CMC section-3 / section-5 handoffs.
-- ✅ Every unverified factual claim (PyRIT class names or renames, published ASR numbers, seed-corpus sizes, judge calibration numbers) is marked `<!-- needs-research: ... -->`.
+- ✅ Every unverified factual claim (PyRIT class names or renames, published ASR numbers, seed-corpus sizes, judge calibration numbers) is flagged with the module's research-pending comment marker.
 - ✅ Handoff notes at the end of the runbook name the mod-108 guardrail row(s) each finding feeds, the mod-112 severity for each finding, and the CMC section-3 / section-5 entries this exercise populates.
 
 ## Stretch goals

@@ -27,7 +27,7 @@ The calibration-set manifest, one entry per `(prompt, completion)` pair. Each en
 - `behaviour_category` — the mapped category (HarmBench / AIR-Bench / AILuminate cell; be explicit). At least three categories represented.
 - `expected_outcome_class` — one of `{genuine_jailbreak, empty_jailbreak, refused, off_target}` per chapter 05's four-class distinction. This is the author's *intent* for the pair; the human panel adjudicates the actual class.
 - `carve_out_flag` — `empty_jailbreak_probe: true` when the item is one of the ≥10% empty-jailbreak carve-out pairs.
-- `provenance` — where the pair came from (attacker log from exercise 02, HarmBench sample, StrongREJECT canonical set, synthetic authored). <!-- needs-research: pin the specific StrongREJECT canonical-set release you drew from. -->
+- `provenance` — where the pair came from (attacker log from exercise 02, HarmBench sample, StrongREJECT canonical set, synthetic authored). The original StrongREJECT release lives at [`alexandrasouly/strongreject`](https://github.com/alexandrasouly/strongreject) (now deprecated in favour of [`dsbowen/strong_reject`](https://github.com/dsbowen/strong_reject)); pin which release you drew from.
 - `severity` — mod-112 severity annotation for the underlying behaviour.
 - `storage_location` — external payload-store URI for the prompt text and completion text.
 
@@ -38,7 +38,7 @@ Prompt text and completion text stay in the payload store and are referenced by 
 The calibration-run report — the section-4 numbers.
 
 - `judge_identity` — `{model_family, weights_hash, decoding_config_hash, rubric_prompt_template_hash}`. A judge whose four hashes are not pinned is a judge whose verdicts are not comparable across runs (chapter 05); the four hashes feed CMC section 6.
-- `rubric_reference` — the primary-source path (StrongREJECT paper appendix; repository prompts directory). <!-- needs-research: confirm the current canonical repo path for the rubric prompt files. -->
+- `rubric_reference` — the primary-source path (StrongREJECT paper appendix; repository prompts directory). The autograder prompt file in the canonical repository is [`strongreject/strongreject_evaluator_prompt.txt`](https://github.com/alexandrasouly/strongreject); confirm the path in the specific release you pinned.
 - `panel_composition` — number of human graders per item (≥2), grader roles (not names), grader-selection rationale.
 - `inter_rater_agreement` — Cohen's kappa (or Krippendorff's alpha for >2 graders) across the full set and per behaviour category. A set whose panel agreement is itself low is a set whose "ground truth" is unstable; chapter 05 says why.
 - `confusion_matrix` — LLM-judge verdict × human-panel majority, over the four outcome classes. Report absolute counts and normalised rates.
@@ -100,7 +100,7 @@ A short (~800–1200 word) runbook covering:
 - ✅ `judge_supply_chain_boundary` names the specific `ai-infra-security` (peer, level 35) platform properties the contract requires (weight signing, prompt-template signed release, workload-identity isolation, tamper-evident output log) and the shape of the finding routed to the peer role when the current stack does not provide them.
 - ✅ `cmc-<program>-judge-artefacts-manifest.yaml` lists every harmful-payload artefact class (human labels per item, LLM-judge rationales, calibration pair texts, disagreement case notes) with sha256, storage URI, ACL, retention policy, and `pair_id` cross-reference. **No prompt text, no completion text, no per-item human labels, no judge rationale text in any committed file.**
 - ✅ `cmc-<program>-judge-runbook.md` (~800–1200 words) covers calibration-set assembly, panel methodology, judge choice, confusion-matrix interpretation, empty-jailbreak carve-out result, drift-monitoring plan, the argued CMC section-4 judge contract (which cells are defensible on the judge alone, which need 5%-sample human review, which need ensembling, which need full panel), judge supply-chain boundary, threats to validity, and downstream handoffs (mod-108, mod-109, `ai-eval-engineer`, `ai-infra-security`).
-- ✅ Every unverified factual claim (Souly et al. reported FP/FN bounds on named judges, StrongREJECT canonical repository path, HarmBench comparison numbers, JailbreakBench judge integration URL, mod-106 panel size norms) marked `<!-- needs-research: ... -->`.
+- ✅ Every unverified factual claim (Souly et al. reported FP/FN bounds on named judges, StrongREJECT canonical repository path, HarmBench comparison numbers, JailbreakBench judge integration URL, mod-106 panel size norms) is flagged with the module's research-pending comment marker.
 - ✅ The judge model family is **not** the same family as the primary program target (chapter 05: shared-blindspot avoidance); the runbook names both families and the rationale.
 - ✅ Handoff notes at the end of the runbook name the mod-108 guardrail-training routing rule (only calibrated-cell outputs are training-set-eligible), the mod-109 safety-case inability-leg citation, and the `ai-eval-engineer` peer's judge-serving SLO / throughput / latency budget implied by the per-cell invocation count.
 

@@ -63,7 +63,7 @@ mod-111-automated-and-scaled-red-teaming/
 
 The chapters summarise, categorise, and pin — they do **not** substitute for reading the primary papers. Every chapter cites its primaries; `resources.md` collects them. In particular, before the exercises you should have read at least Chao et al. (PAIR), Mehrotra et al. (TAP), Russinovich et al. (Crescendo), Perez et al. ("Red Teaming Language Models with Language Models"), Ganguli et al. ("Red Teaming Language Models to Reduce Harms"), and Souly et al. (StrongREJECT). The Inspect, PyRIT, garak, and Promptfoo documentation sites are load-bearing for chapter 02 and exercises 01, 02, and 06.
 
-Benchmark scores, transfer rates, and public leaderboards move with every model release. Every chapter's number carries a `<!-- needs-research: ... -->` marker where the figure would need re-verification before being cited in an artefact.
+Benchmark scores, transfer rates, and public leaderboards move with every model release. Every chapter's number carries a research-pending comment marker where the figure would need re-verification before being cited in an artefact.
 
 ## Harmful-payload discipline
 

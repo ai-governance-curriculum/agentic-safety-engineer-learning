@@ -90,7 +90,7 @@ A short (**800–1200 words**) runbook covering:
 ## Starter guidance
 
 - **This exercise is scale, not craft.** Mod-104 exercise 02 owns the single-target PAIR / TAP craft depth. Do not re-litigate the loop mechanics here; the deliverable is the parallel-cell, budget-aware, diversity-scored *program layer* on top.
-- **Use PyRIT's shipped orchestrators.** `PAIROrchestrator` and `TreeOfAttackOrchestrator` are the reference implementations chapter 03 names. The engineering work is composition — choosing the `(attacker, target, judge)` triple, wiring budgets, wrapping in the scheduler — not re-implementing the loops. <!-- needs-research: confirm the current PyRIT release's orchestrator class names and their import paths against the pinned release; Microsoft has moved the path across releases. -->
+- **Use PyRIT's shipped orchestrators.** `PAIROrchestrator` and the tree-of-attacks orchestrator are the reference implementations chapter 03 names. The engineering work is composition — choosing the `(attacker, target, judge)` triple, wiring budgets, wrapping in the scheduler — not re-implementing the loops. Resolve the exact class name and import path against your pinned [PyRIT release](https://github.com/microsoft/PyRIT/releases); Microsoft has moved the path across releases.
 - **Wrap PyRIT in an Inspect task.** Chapter 02's composition rule is unchanged: PyRIT is the solver, Inspect is the runner and log store. Your rate-limit-aware scheduler sits *between* the Inspect task and the provider calls.
 - **Pin the diversity methodology before you run.** The embedding model, the clustering algorithm, and the threshold are all methodology commitments; changing them post-hoc invalidates the number. Name them in Artefact B's `diversity` block; document them in the runbook.
 - **A single scalar ASR is a rejected report.** Chapter 03 is explicit: `(ASR, ASR CI, diversity)` is the tuple. A cell entry with a scalar ASR fails acceptance.
@@ -113,7 +113,7 @@ A short (**800–1200 words**) runbook covering:
 - ✅ `cmc-<program>-pair-tap-transcript-manifest.yaml` lists every attempt (both successful and unsuccessful, both PAIR iterations and TAP branch paths) with ID, sha256, storage URI, `verdict`, `cluster_id`, `severity`, and access group. **No attacker prompt text, no target completion text, and no judge rationale text in any committed file.**
 - ✅ `cmc-<program>-pair-tap-runbook.md` (800–1200 words) covers cell-selection rationale, scheduler architecture, budget enforcement, PAIR-vs-TAP interpretation, the "ASR alone is misleading" paragraph backed by the learner's own diversity number, cost accounting, judge choice and drift check, explicit handoffs (rate-limit scheduler → `ai-eval-engineer` peer; guardrail delta → mod-108; CMC sections 3 and 6), and threats to validity.
 - ✅ ASR figures scored under a chapter-05 StrongREJECT-shape judge; PyRIT's default `SelfAskLikertScorer` is not used. Judge model and version pinned in Artefact A.
-- ✅ Every unverified factual claim (PyRIT class / import paths, published PAIR / TAP ASR numbers, embedding-model recommendations, framework release specifics) marked `<!-- needs-research: ... -->`.
+- ✅ Every unverified factual claim (PyRIT class / import paths, published PAIR / TAP ASR numbers, embedding-model recommendations, framework release specifics) is flagged with the module's research-pending comment marker.
 - ✅ At least one successful attack per behaviour is annotated with a mod-112 severity in the transcript manifest.
 
 ## Stretch goals
